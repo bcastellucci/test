@@ -40,7 +40,7 @@ jobs:
       image: gcr.io/go-containerregistry/crane:debug
     steps:
       - name: crane login
-        run: crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        run: (crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY)
       - name: crane copy
-        run: crane cp cgr.dev/chainguard/maven:latest $CI_REGISTRY/bcastellucci/test/maven
+        run: (crane cp cgr.dev/chainguard/maven:latest $CI_REGISTRY/bcastellucci/test/maven)
   
