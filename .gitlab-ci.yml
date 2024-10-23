@@ -1,0 +1,12 @@
+crane-test:
+  image:
+    name: gcr.io/go-containerregistry/crane:debug
+    entrypoint: [""]
+#  before_script:
+#    - export HOME=/tmp
+  script:
+    - crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - crane cp cgr.dev/chainguard/maven:latest $CI_REGISTRY/bcastellucci/test/maven
+  tags:
+    - crane
+  
